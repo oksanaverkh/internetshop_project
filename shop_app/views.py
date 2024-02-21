@@ -258,8 +258,7 @@ def add_to_cart(request, user_id, product_id):
         if form.is_valid():
             quantity = form.cleaned_data['quantity']
             if product.quantity < quantity:
-                message = f'Недостаточное количество товара на складе, осталось {
-                    product.quantity} штук'
+                message = f'Недостаточное количество товара на складе, осталось {product.quantity} штук'
                 form = CartAddProductForm()
                 return render(request, 'shop_app/orders/cart_add.html', {'form': form, 'message': message, 'product': product, 'img_data': img_data, 'user': user})
 
