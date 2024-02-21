@@ -1,0 +1,14 @@
+{% extends 'shop_app/base.html'%}
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h2>Загрузить фото товара</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Загрузить">
+</form>
+{% endblock %}

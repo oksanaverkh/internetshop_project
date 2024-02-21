@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Интернет-магазин футболок с принтами{% endblock %}</title>
+</head>
+<body>
+    <style type="text/css">
+body {
+    background-color: #262525;
+    padding: 80px 10px 80px 10px;
+         font-family: 'Roboto', sans-serif;
+    margin: 30px 300px 30px 300px;
+    font-size: 130%;
+    text-align: center;
+    font-weight: bolder;
+    background-size: contain;
+}
+
+input {
+    font-size: 100%;
+}
+
+button {
+    width: 200px;
+    height: 296px;
+    align-items: center;
+    font-size: 110%;
+}
+
+
+h1 {
+    font-family: 'Nerko One', cursive;
+    font-size: 200%;
+    color: darkred;
+    text-shadow: 1px 1px lightpink;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 170%;
+    color: #94969c;
+    text-shadow: 1px 1px lightgrey;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    color: rgb(150, 247, 186);
+}
+
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 10px 250px;
+  margin: 0;
+  width: 50%;
+
+}
+
+li {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 1s;
+    font-weight: 150;
+    font-size:large;
+    color: rgb(153, 242, 158);
+    margin-bottom: 10px;
+    width: 50%;
+    
+}
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+
+p {
+    width: 100%;
+    font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 100%;
+    color: rgb(250, 248, 248);
+    padding: 10px, 10px, 10px, 10px;
+}
+
+
+.right {
+    position: absolute;
+    right: 20px;
+    width: 300px;
+    padding: 10px;
+}
+
+.left {
+    position:absolute;
+    left: 20px;
+    width: 300px;
+    padding: 10px;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  background-color: #f3d8e7;
+  padding: 4px 20px;
+  border: 1px solid #000000;
+  align-content: right;
+  text-align:right;
+}
+
+table, td, th {    
+    text-align: left;
+    text-align: left;
+    color:#7e9c7c
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+th {
+    font-weight: bold;
+    font-size: 120%;
+}
+</style>
+
+<div>
+    <h1>Интернет-магазин футболок с принтами</h1>
+</div>
+
+{% if user.name %}
+
+<div class="left">
+    <p>
+        Вы вошли как {{user.name}}
+    </p>
+    <p>
+        <a href="{% url 'user_card' user.id%}">Личный кабинет</a>
+    </p>
+    <p>
+        <a href="{% url 'logout' user.id %}">Выйти</a>
+    </p>
+</div>
+
+<div class="right">
+
+        <p>
+            <a href="{% url 'welcome' user.id%}">Перейти на главную</a>
+        </p>
+    
+        {% if cart %}
+        <p>
+            <a href="{% url 'cart' user.id cart.id %}">Корзина</a>
+        </p>
+        {% else %}
+        <p>
+            <a href="{% url 'cart_empty' user.id %}">Корзина</a>
+        {% endif %}
+        </p>
+
+
+</div>
+{% endif %}
+
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

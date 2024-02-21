@@ -1,0 +1,20 @@
+{% extends 'shop_app/base.html'%}
+{% load static %}
+
+{% block title %}
+Интернет-магазин футболок с принтами
+{% endblock %}
+
+{% block content %}
+
+<h2>Заказы клиента {{ user.name }}</h2>
+{% for item in orders %}
+
+    <li>
+    
+    <a href="{% url 'show_order_card' user.id item.id %}">Заказ номер {{ item.id }} от {{ item.order_date }}</a>
+
+    </li>
+    {% endfor %}
+
+{% endblock %}

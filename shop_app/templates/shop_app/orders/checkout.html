@@ -1,0 +1,55 @@
+{% extends 'shop_app/base.html'%}
+
+
+
+
+{% block title %}
+Оформление заказа
+
+{% endblock %}
+
+{% block content %}
+
+<h2>Оформление заказа</h2>
+
+<table class="cart">
+    <thead>
+    <tr>
+        <th>Товар</th>
+        <th>Количество</th>
+    </tr>
+    </thead>
+    <tbody>
+        
+    {% for item in products %}
+        {% with product=item.product %}
+        <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+        {% endwith %}
+    {% endfor %}
+    <tr>
+        <td>Итого</td>
+        <td colspan="2"></td>
+        <td class="num">Стоимость ${{ cart.get_total_price }}</td>
+        
+    </tr>
+    </tbody>
+</table>
+
+
+<h3>{{ message }}</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Оформить заказ">
+
+</form>
+
+
+
+
+
+{% endblock %}

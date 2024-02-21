@@ -1,0 +1,40 @@
+{% extends 'shop_app/base.html'%}
+{% load static %}
+
+{% block title %}
+Просмотр информации о товаре
+
+{% endblock %}
+
+{% block content %}
+<table>
+    <p><img src="{{ img_data }}" style="width: 400px; height: 450px; border: 1px solid red;" /></p>
+
+    <tr>
+        <th>Наименование</th>
+        <th>Категория</th>
+        <th>Описание</th>
+        <th>Цвет</th>
+        <th>Размер</th>
+        <th>Цена</th>
+    </tr>
+
+    <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.color }}</td>
+        <td>{{ product.size }}</td>
+        <td>{{ product.price }}</td>
+
+    </tr>
+    
+</table>
+
+<p>
+
+</p>
+<p>
+    <a href="{% url 'cart_add' user.id product.id %}">Добавить в корзину</a>
+</p>
+{% endblock %}

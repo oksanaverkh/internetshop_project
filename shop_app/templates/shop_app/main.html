@@ -1,0 +1,44 @@
+{% extends 'shop_app/base.html'%}
+{% load static %}
+
+{% block title %}
+Интернет-магазин футболок с принтами
+{% endblock %}
+
+{% block content %}
+<h2>Наши новинки</h2>
+
+<div class="left">
+  
+
+  <p>
+    <a href="{% url 'login_user' %}">Войти</a>
+  </p>
+
+  <p>
+    <a href="{% url 'registration' %}">Зарегистрироваться</a>
+  </p>
+    
+  </div>
+
+  <ul>
+<p>
+{% for item in products %}
+
+    <li>
+    {% if item.image %}
+        <img src="{{ item.image.url }}" style="width: 150px; height: 160px; border: 1px solid red;"/>
+                
+    {% endif %}
+    {{ item.name }}
+
+    </li>
+
+    {% endfor %}
+  </p>
+</ul>
+
+
+
+
+{% endblock %}

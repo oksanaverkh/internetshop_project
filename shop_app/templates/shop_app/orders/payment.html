@@ -1,0 +1,27 @@
+{% extends 'shop_app/base.html'%}
+
+
+{% block title %}
+Оплата заказа {{ order.id }}
+
+{% endblock %}
+
+{% block content %}
+
+<h2>Оплата заказа {{ order.id }}</h2>
+
+<p>
+    Оплата заказа {{ order.id }} прошла успешно!
+</p>
+
+<p></p>
+
+<p>
+    <a href="{% url 'order_complete' user.id order.id %}">Перейти к завершению заказа</a>
+</p>
+
+
+
+{% endblock %}
+
+

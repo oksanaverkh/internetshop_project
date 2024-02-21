@@ -1,0 +1,40 @@
+{% extends 'shop_app/base.html'%}
+{% load static %}
+
+{% block title %}
+Интернет-магазин футболок с принтами
+
+{% endblock %}
+
+{% block content %}
+
+<table>
+    <p><img src="{{ product.image.url }}" style="width: 300px; height: 350px; border: 1px solid red;"></p>
+
+    <tr>
+        <th>Наименование</th>
+        <th>Размер</th>
+        <th>Цена</th>
+    </tr>
+
+    <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.size }}</td>
+        <td>{{ product.price }}</td>
+
+    </tr>
+    
+</table>
+
+<h3>{{ message }}</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Выбрать">
+
+    
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'shop_app/base.html'%}
+{% load static %}
+
+{% block title %}
+Интернет-магазин футболок с принтами
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ message }}</h2>
+
+<ul>
+    <li>
+        <p><img src="{{ img_data_man }}" style="width: 300px; height: 350px; border: 1px solid red;" /></p>
+        <a href="{% url 'all_products' user.id 'M' %}">Мужские футболки</a>
+    </li>
+<li>
+    <p><img src="{{ img_data_woman }}" style="width: 300px; height: 350px; border: 1px solid red;" /></p>
+    <a href="{% url 'all_products' user.id 'F'%}">Женские футболки</a>
+</li>
+        
+
+    </ul>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'shop_app/base.html'%}
+{% load static %}
+
+
+{% block title %}
+    Корзина пуста
+{% endblock %}
+{% block content %}
+    <h2>Корзина пуста</h2>
+    
+    <p class="text-right">
+
+        
+        <a href="{% url 'catalogue' user.id %}" class="button">Перейти к каталогу товаров</a>
+    </p>
+{% endblock %}

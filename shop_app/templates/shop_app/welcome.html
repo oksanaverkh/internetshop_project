@@ -1,0 +1,19 @@
+{% extends 'shop_app/base.html'%}
+{% load static %}
+
+{% block title %}
+Интернет-магазин футболок с принтами
+{% endblock %}
+
+{% block content %}
+
+<h3>{{ message }}</h3>
+
+<a href="{% url 'catalogue' user.id %}">Каталог товаров</a>
+<a href="{% url 'search' user.id %}">Поиск товаров</a>
+<a href="{% url 'get_user_orders' user.id %}">Мои заказы</a>
+
+
+
+
+{% endblock %}
